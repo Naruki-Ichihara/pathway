@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  pathway:
+    restart: always
+    image: ichiharanaruki/gmake:latest
+    container_name: 'pathway'
+    working_dir: '/root/'
+    tty: true
+    volumes:
+    - ./:/workspace
+    shm_size: 4gb
+    ulimits:
+      memlock: -1
+      stack: 67108864
+    environment:
+       - DISPLAY=host.docker.internal:0.0
